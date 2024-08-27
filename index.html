@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exposición </title>
+    <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden; /* Evita el desplazamiento horizontal */
+        }
+
+        /* Estilo para la pantalla de bienvenida */
+        #welcome-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #282c34;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            z-index: 10;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        #welcome-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #atom {
+            width: 190px;
+            height: 150px;
+            background-image: url(atomo.gif); /* Aquí puedes poner la URL de la imagen de un átomo */
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        #welcome-text {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        /* Estilo para la página principal */
+        #main-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        #main-content.visible {
+            display: block;
+            opacity: 1;
+        }
+
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 50px 20px; /* Añade espacio a los lados para evitar cortes */
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+
+        section img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px 0;
+        }
+
+        footer {
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Pantalla de bienvenida -->
+    <div id="welcome-screen">
+        <div id="atom"></div>
+        <div id="welcome-text">Toca el átomo para ingresar</div>
+    </div>
+
+    <!-- Contenido principal de la página -->
+    <div id="main-content">
+        <header>
+            <h1>Química⚛️</h1>
+            <nav>
+                <ul>
+                    <li><a href="#divisibilidad">Divisibilidad</a></li>
+                    <li><a href="#solubilidad">Solubilidad</a></li>
+                    <li><a href="#maneabilidad">Maneabilidad</a></li>
+                    <li><a href="#cambios-fisicos">Cambios Físicos</a></li>
+                    <li><a href="#reacciones-quimicas">Reacciones Químicas</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Sección de Divisibilidad -->
+        <section id="divisibilidad">
+            <h2>Divisibilidad</h2>
+            <img src="divicibilidad.gif" alt="Divisibilidad">
+            <p>La divisibilidad se refiere a la capacidad de una sustancia para dividirse en partes más pequeñas sin cambiar su composición química.</p>
+        </section>
+
+        <!-- Sección de Solubilidad -->
+        <section id="solubilidad">
+            <h2>Solubilidad</h2>
+            <img src="solubilidad.webp" alt="Solubilidad">
+            <p>La solubilidad es la capacidad de una sustancia para disolverse en un solvente, formando una solución homogénea.</p>
+        </section>
+
+        <!-- Sección de Maneabilidad -->
+        <section id="maneabilidad">
+            <h2>Maneabilidad</h2>
+            <img src="manebilidad.gif" alt="Maneabilidad">
+            <p>La manejabilidad se refiere a la facilidad con la que una sustancia puede ser manipulada, transportada o moldeada.</p>
+        </section>
+
+        <!-- Sección de Cambios Físicos -->
+        <section id="cambios-fisicos">
+            <h2>Cambios Físicos</h2>
+            <img src="cambios fisicos.jpg"style="height: 400px; width: 400px;"Cambios Físicos>
+            <p>Los cambios físicos son transformaciones en las que no se altera la composición química de una sustancia, como cambios de estado.</p>
+        </section>
+
+        <!-- Sección de Reacciones Químicas -->
+        <section id="reacciones-quimicas">
+            <h2>Reacciones Químicas</h2>
+            <img src="reacciones quimicas.gif" alt="Reacciones Químicas">
+            <p>Una reacción química implica la transformación de unas sustancias en otras, con un cambio en su composición química.</p>
+        </section>
+
+        <!-- Pie de página -->
+        <footer>
+            <p>&copy; 2024 Química.Institucion Educativa Angel Cuniberti.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Ocultar la pantalla de bienvenida y mostrar el contenido principal al hacer clic en el átomo
+        document.getElementById('atom').addEventListener('click', function() {
+            document.getElementById('welcome-screen').classList.add('hidden');
+            setTimeout(function() {
+                document.getElementById('main-content').classList.add('visible');
+            }, 500);
+        });
+    </script>
+</body>
+</html>
